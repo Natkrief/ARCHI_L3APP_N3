@@ -1,48 +1,29 @@
 package caluculette;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
-public class Operation {
-	int op;
+public interface Operation {
+	/*
 	private double a;
 	private double b;
+
 	
-	public Operation(int op,double a,double b) {
-		this.op=op;
+	public Operation(double a,double b) {
 		this.a = a;
 		this.b = b;
 	}
-	
-	double res;
-	public double calculer(int op,double a,double b) {
-		switch(op) {
-		case 1 : 
-			Addition ad = new Addition(op,a,b);
-			res = ad.calculer(a,b);
-			break;
-			
-		case 2 :
-			Division dv = new Division(op,a,b);
-			res = dv.calculer(a, b);
-			break;
-			
-		case 3 :
-			System.out.println("Bonne soirée à vous !");
-			break;
-		
-		default : System.out.println("VOUS NE PASSEREZ PAAAS");
-		
-		
-		}
-		return res;
-	}
-	
-	public void afficheResultat() {
 
-		System.out.println(res);
 
-		
-		
+	public double getA() {
+		return a;
 	}
-	
+
+
+	public double getB() {
+		return b;
+	}
+*/
+	public double calculer(double a,double b) throws MonException;
 }

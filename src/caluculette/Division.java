@@ -1,25 +1,12 @@
 package caluculette;
 
-public class Division extends Operation{
+public class Division implements Operation{
 
-	public Division(int op, double a, double b) {
-		super(op, a, b);
-		// TODO Auto-generated constructor stub
-	}
-	
-	public double calculer(double a,double b) {
-		double resultat = 0;
-		try {
-			resultat = division(a,b);
-		} catch (ArithmeticException e) {
-			System.out.println("Division par 0 impossible");
-		}
-		
-		return resultat;
-	}
-
-	
-	public static double division(double a,double b) throws ArithmeticException {
-		return a / b;
+	@Override
+	public double calculer(double a, double b) throws MonException{	
+		if(b!=0)
+			return a/b;
+		else
+			throw new MonException(EnumException.UTILISATION_ZERO.getCode(),EnumException.UTILISATION_ZERO.getMessage());
 	}
 }

@@ -1,13 +1,18 @@
 package caluculette;
 
-public class Addition extends Operation{
+public class Addition implements Operation{
 
-	public Addition(int op, double a, double b) {
-		super(op, a, b);
-		// TODO Auto-generated constructor stub
+	@Override
+	public double calculer(double a, double b) throws MonException {
+		try {
+			if(Double.valueOf(a + "") instanceof Double && Double.valueOf(a + "") instanceof Double) {
+				return a+b;
+			}
+			else
+				throw new MonException(EnumException.VALEUR_INVALIDE.getCode(),EnumException.VALEUR_INVALIDE.getMessage());
+		} catch (NumberFormatException e) {
+			throw new MonException(EnumException.VALEUR_INVALIDE.getCode(),EnumException.VALEUR_INVALIDE.getMessage());
+		}
 	}
-	
-	public double calculer(double a,double b) {
-		return a+b;
-	}
+
 }
