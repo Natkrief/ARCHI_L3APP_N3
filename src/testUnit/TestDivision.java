@@ -8,35 +8,36 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import caluculette.Calculator;
-import caluculette.Division;
-import caluculette.EnumException;
-import caluculette.MonException;
+import calculette.Calculette;
+import calculette.Config;
+import calculette.Division;
+import calculette.EnumException;
+import calculette.MonException;
 
-public class testDivision {
+public class TestDivision {
 
 	@Before
 	public void setUp() throws Exception {
+		Config cfg = new Config();		
+		cfg.initialisation();
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test(expected=MonException.class)
+	@Test(expected = MonException.class)
 	public void testDivisionParZero() throws MonException {
 		double a = 15;
 		double b = 0;
-		Division div = new Division();
-		assertEquals(div.calculer(a, b),Calculator.calculer(a, b, '/'));
+		assertEquals(a/b, Calculette.calculer(a, b, '/'));
 	}
-	
+
 	@Test
 	public void testDivisionValide() throws MonException {
 		double a = 15;
 		double b = 3;
-		Division div = new Division();
-		assertEquals(5.0,div.calculer(a, b),0);
+		assertEquals(a / b, Calculette.calculer(a, b, '/'), 0);
 	}
 
 }

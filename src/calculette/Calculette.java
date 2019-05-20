@@ -1,6 +1,6 @@
-package caluculette;
+package calculette;
 
-public class Calculator {
+public class Calculette {
 	
 
 	public static double calculer(double a,double b,char choix) throws MonException {

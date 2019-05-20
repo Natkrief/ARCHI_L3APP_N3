@@ -1,4 +1,4 @@
-package caluculette;
+package calculette;
 
 import java.util.HashMap;
 import java.util.Map;

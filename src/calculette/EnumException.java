@@ -1,4 +1,4 @@
-package caluculette;
+package calculette;
 
 public enum EnumException {
 	

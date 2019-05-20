@@ -1,4 +1,4 @@
-package caluculette;
+package calculette;
 
 import java.util.HashMap;
 import java.util.InputMismatchException;
@@ -8,17 +8,26 @@ import java.util.Scanner;
 public class LigneDeCommande implements IHM {
 	Scanner sc = new Scanner(System.in);
 	private char op;
-
-	public LigneDeCommande() {
-	}
+	ApplicationProperties prop;
+	//InputStream input = null;
 
 	@Override
 	public void demarer() {
+		
+		String lang = "FR";
+		if(lang.equals("FR"))
+			prop = ApplicationProperties.getInstance("C:\\Users\\natkr\\eclipse-workspace\\ARCHI_L3APP_N3\\src\\calculette\\message_fr.properties");
+		else
+			prop = ApplicationProperties.getInstance("C:\\\\Users\\\\natkr\\\\eclipse-workspace\\\\ARCHI_L3APP_N3\\\\src\\\\calculette\\\\message_en.properties");
+		
+		System.out.println(prop.lirePropriete("Text1"));
+		
+		
 		try {
-			double res = valeur();
-			double res2 = valeur();
+			double res = valeur(prop.lirePropriete("Val1"));
+			double res2 = valeur(prop.lirePropriete("Val2"));
 			char choix = afficheMenu();
-			double resultat = Calculator.calculer(res, res2, choix);
+			double resultat = Calculette.calculer(res, res2, choix);
 			System.out.println(res + " " + choix + " " + res2 + " = " + resultat);
 		}
 
@@ -42,7 +51,7 @@ public class LigneDeCommande implements IHM {
 
 	}
 
-	public double valeur() throws MonException {
+	public double valeur(String cle) throws MonException {
 		double res = 0;
 		try {
 			System.out.println("Choisissez une valeur");
