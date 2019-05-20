@@ -5,7 +5,7 @@ public class Addition implements Operation{
 	@Override
 	public double calculer(double a, double b) throws MonException {
 		try {
-			if(Double.valueOf(a + "") instanceof Double && Double.valueOf(a + "") instanceof Double) {
+			if(Double.valueOf(a + "") instanceof Double && Double.valueOf(b + "") instanceof Double) {
 				return a+b;
 			}
 			else
