@@ -2,7 +2,7 @@ package calculette;
 
 public enum EnumException {
 	
-	UTILISATION_ZERO(1,"Division par 0 !"),
+	UTILISATION_ZERO(1,"La division par 0 est interdite"),
 	CHAR_INVALIDE(2,"Charactère invalide !"),
 	VALEUR_INVALIDE(3,"Valeur invalide !");
 

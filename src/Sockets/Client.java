@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Client implements IHM {
 
 	@Override
-	public void demarer() throws IOException {
+	public void demarrer() throws IOException {
 		String message;
 
 		while (true) {

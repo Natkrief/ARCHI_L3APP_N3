@@ -1,14 +1,14 @@
 package calculette;
 
-public class MonException extends Exception{
+public class MonException extends Exception {
 
 	private int code;
 	private String message;
-	
+
 	public MonException() {
 		super();
 	}
-	
+
 	public MonException(int code, String message) {
 		this.code = code;
 		this.message = message;
@@ -29,8 +29,5 @@ public class MonException extends Exception{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
 
-	
-	
 }
