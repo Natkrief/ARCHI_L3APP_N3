@@ -13,9 +13,9 @@ public class Requete {
 
 	private static final Logger LOGGER = Logger.getLogger(Requete.class.getName());
 
-	private static int PORT = 55555;
+	private static int PORT = 12008;
 
-	public static String envoie(String mess) throws IOException {
+	public static Enveloppe envoie(Enveloppe env) throws IOException, ClassNotFoundException {
 		InetAddress host = InetAddress.getLocalHost();
 		ObjectOutputStream oos = null;
 		ObjectInputStream ois = null;
@@ -26,15 +26,15 @@ public class Requete {
 		LOGGER.log(Level.INFO, "Connection serveur établie !");
 
 		LOGGER.log(Level.INFO, "Envoie de la requete vers le Serveur");
-		oos.writeUTF(mess);
-
+		oos.writeObject(env);
+		
 		ois = new ObjectInputStream(socket.getInputStream());
-		String resultatMessage = ois.readUTF();
-		LOGGER.log(Level.INFO, "Message reçu : " + resultatMessage);
+		Enveloppe enveloppe = (Enveloppe) ois.readObject();
+		LOGGER.log(Level.INFO, "Message reçu : " + enveloppe);
 		
 		socket.close();
 		
-		return resultatMessage;
+		return enveloppe;
 
 	}
 
